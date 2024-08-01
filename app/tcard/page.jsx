@@ -1,6 +1,6 @@
 import React from 'react';
 
-function StudentDetails() {
+const App = () => {
   return (
     <div className="min-h-screen bg-[#F2F2F2]">
       {/* Header start here */}
@@ -42,6 +42,7 @@ function StudentDetails() {
             </button>
           </div>
         </div>
+
         {/* Right Container */}
         <div className="flex-1 p-4 flex flex-col mt-10 lg:mt-14 lg:h-screen overflow-y-auto">
           {/* Heading */}
@@ -92,7 +93,8 @@ function StudentDetails() {
               </div>
               <div className="flex justify-center mt-4">
                 <button className="border border-[#08183A] w-40 h-10 text-[#08183A] rounded flex justify-center items-center">
-                  <img src="img/user (1) 1.svg" className="w-[26.67px] h-[26.67px]" alt="Icon" /><span className="ml-2">Mark</span>
+                  <img src="img/user (1) 1.svg" className="w-[26.67px] h-[26.67px]" alt="Icon" />
+                  <span className="ml-2">Mark</span>
                 </button>
               </div>
             </div>
@@ -103,4 +105,4 @@ function StudentDetails() {
   );
 }
 
-export default StudentDetails;
+export default App;
