@@ -98,23 +98,23 @@ const TeacherAttendancePage = () => {
                     </div>
                     {/* Buttons */}
                     <div className="space-y-4">
-                        <button className="w-full lg:w-72 h-9 bg-[#F2BA1D] focus:bg-white text-[#08183A] flex items-center justify-center space-x-2 rounded">
-                            <img src="img/dashboard 1.svg" alt="Dashboard Icon" className="w-6 h-6" />
-                            <span>Dashboard</span>
+          <button className="w-full lg:w-72 h-9 bg-[#F2BA1D] text-[#08183A] flex items-center justify-center space-x-2 rounded">
+            <img src="img/dashboard 1.svg" alt="Dashboard Icon" className="w-6 h-6" />
+            <span>Dashboard</span>
+          </button>
+          <button className="w-full lg:w-72 h-9 bg-[#F2BA1D] focus:bg-white text-[#08183A] flex items-center justify-center space-x-2 rounded">
+            <img src="/img/calendar (1).svg" alt="Student Icon" className="w-6 h-6" />
+            <span>Attendance</span>
+          </button>
+          <button className="w-full lg:w-72 h-9 focus:bg-white bg-[#F2BA1D] text-[#08183A] flex items-center justify-center space-x-2 rounded">
+            <img src="/img/report-card (1).svg" alt="Teacher Icon" className="w-6 h-6" />
+            <span>Report Card</span>
+          </button>
+          <button className="w-full lg:w-72 h-9 focus:bg-white bg-[#F2BA1D] text-[#08183A] flex items-center justify-center space-x-2 rounded">
+                            <img src="/img/report-card (1) (1).svg" alt="Teacher Icon" className="w-6 h-6" />
+                            <span>Apply For Leave</span>
                         </button>
-                        <button className="w-full lg:w-72 h-9 bg-[#F2BA1D] text-[#08183A] flex items-center justify-center space-x-2 rounded">
-                            <img src="/img/reading-book (1).svg" alt="Student Icon" className="w-6 h-6" />
-                            <span>Student</span>
-                        </button>
-                        <button className="w-full lg:w-72 h-9 focus:bg-white bg-[#F2BA1D] text-[#08183A] flex items-center justify-center space-x-2 rounded">
-                            <img src="/img/school (1).svg" alt="Teacher Icon" className="w-6 h-6" />
-                            <span>Teacher</span>
-                        </button>
-                        <button className="w-full lg:w-72 h-9 focus:bg-white bg-[#F2BA1D] text-[#08183A] flex items-center justify-center space-x-2 rounded">
-              <img src="/img/report-card (1) (1).svg" alt="Teacher Icon" className="w-6 h-6" />
-              <span>Apply For Leave</span>
-            </button>
-                    </div>
+        </div>
                 </div>
                 {/* Right Container */}
                 <div className="flex-1 p-4 flex flex-col mt-10 lg:mt-14 lg:h-screen overflow-y-auto">

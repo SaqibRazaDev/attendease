@@ -69,7 +69,11 @@ const TeacherListPage = () => {
                                         <td className="py-2 px-4">John Doe</td>
                                         <td className="py-2 px-4">English</td>
                                         <td className="py-2 px-4">3</td>
-                                        <td className="py-2 px-4">p</td>
+                                        <td className="py-2 px-4">
+                                            <button className="bg-[#F2BA1D] text-[#08183A] px-4 py-1 rounded">
+                                                View
+                                            </button>
+                                        </td>
                                     </tr>
                                 ))}
                             </tbody>
