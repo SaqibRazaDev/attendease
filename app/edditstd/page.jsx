@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 function page() {
   return (
@@ -58,29 +58,33 @@ function page() {
             {/* Form */}
             <div className="w-full lg:w-3/4 p-6 rounded-lg">
               <form className="space-y-4">
-                <div className="flex items-center space-x-2">
-                  <label htmlFor="studentName" className="text-2xl font-medium text-gray-700 w-1/3">Student Name:</label>
+                <div className="flex flex-col space-y-2 sm:flex-row sm:space-y-0 sm:items-center sm:space-x-2">
+                  <label htmlFor="studentName" className="text-xl sm:text-2xl font-medium text-gray-700 w-full sm:w-1/3">Student Name:</label>
                   <input type="text" id="studentName" className="p-2 border border-gray-300 rounded-md flex-grow placeholder-sm" placeholder="Enter student name" />
                 </div>
-                <div className="flex items-center space-x-2">
-                  <label htmlFor="fatherName" className="text-2xl font-medium text-gray-700 w-1/3">Father Name:</label>
+                <div className="flex flex-col space-y-2 sm:flex-row sm:space-y-0 sm:items-center sm:space-x-2">
+                  <label htmlFor="fatherName" className="text-xl sm:text-2xl font-medium text-gray-700 w-full sm:w-1/3">Father Name:</label>
                   <input type="text" id="fatherName" className="p-2 border border-gray-300 rounded-md flex-grow placeholder-sm" placeholder="Enter father name" />
                 </div>
-                <div className="flex items-center space-x-2">
-                  <label htmlFor="className" className="text-2xl font-medium text-gray-700 w-1/3">Class Name:</label>
+                <div className="flex flex-col space-y-2 sm:flex-row sm:space-y-0 sm:items-center sm:space-x-2">
+                  <label htmlFor="className" className="text-xl sm:text-2xl font-medium text-gray-700 w-full sm:w-1/3">Class Name:</label>
                   <input type="text" id="className" className="p-2 border border-gray-300 rounded-md flex-grow" placeholder="Enter class name" />
                 </div>
-                <div className="flex items-center space-x-2">
-                  <label htmlFor="cnic" className="text-2xl font-medium text-gray-700 w-1/3">CNIC:</label>
+                <div className="flex flex-col space-y-2 sm:flex-row sm:space-y-0 sm:items-center sm:space-x-2">
+                  <label htmlFor="cnic" className="text-xl sm:text-2xl font-medium text-gray-700 w-full sm:w-1/3">CNIC:</label>
                   <input type="text" id="cnic" className="p-2 border border-gray-300 rounded-md flex-grow" placeholder="Enter CNIC" />
                 </div>
-                <div className="flex items-center space-x-2">
-                  <label htmlFor="studentEmail" className="text-2xl font-medium text-gray-700 w-1/3">Student Email:</label>
+                <div className="flex flex-col space-y-2 sm:flex-row sm:space-y-0 sm:items-center sm:space-x-2">
+                  <label htmlFor="studentEmail" className="text-xl sm:text-2xl font-medium text-gray-700 w-full sm:w-1/3">Student Email:</label>
                   <input type="email" id="studentEmail" className="p-2 border border-gray-300 rounded-md flex-grow" placeholder="Enter student email" />
                 </div>
-                <div className="flex items-center space-x-2">
-                  <label htmlFor="studentContact" className="text-2xl font-medium text-gray-700 w-1/3">Student Contact:</label>
+                <div className="flex flex-col space-y-2 sm:flex-row sm:space-y-0 sm:items-center sm:space-x-2">
+                  <label htmlFor="studentContact" className="text-xl sm:text-2xl font-medium text-gray-700 w-full sm:w-1/3">Student Contact:</label>
                   <input type="tel" id="studentContact" className="p-2 border border-gray-300 rounded-md flex-grow" placeholder="Enter student contact" />
+                </div>
+                <div className="flex flex-col space-y-2 sm:flex-row sm:space-y-0 sm:items-center sm:space-x-2">
+                  <label htmlFor="studentPassword" className="text-xl sm:text-2xl font-medium text-gray-700 w-full sm:w-1/3">Student Password:</label>
+                  <input type="password" id="studentPassword" className="p-2 border border-gray-300 rounded-md flex-grow" placeholder="Enter student password" />
                 </div>
                 {/* Image Upload Area for small and medium devices */}
                 <div className="flex items-center justify-center lg:hidden mt-4">
@@ -108,7 +112,7 @@ function page() {
         </div>
       </main>
     </div>
-  )
+  );
 }
 
-export default page
+export default page;

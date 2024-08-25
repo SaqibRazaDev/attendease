@@ -32,14 +32,15 @@ function page() {
           <img src="img/dashboard 1.svg" alt="Dashboard Icon" className="w-6 h-6" />
           <span>Dashboard</span>
         </button>
-        <button className="w-full lg:w-72 h-9 bg-white text-[#08183A] flex items-center justify-center space-x-2 rounded">
+        <button className="w-full lg:w-72 h-9 bg-[#F2BA1D] text-[#08183A] flex items-center justify-center space-x-2 rounded">
           <img src="/img/reading-book (1).svg" alt="Student Icon" className="w-6 h-6" />
           <span>Student</span>
         </button>
-        <button className="w-full lg:w-72 h-9 bg-[#F2BA1D] text-[#08183A] flex items-center justify-center space-x-2 rounded">
+        <button className="w-full lg:w-72 h-9  bg-[#F2BA1D] text-[#08183A] flex items-center justify-center space-x-2 rounded">
           <img src="/img/school (1).svg" alt="Teacher Icon" className="w-6 h-6" />
           <span>Teacher</span>
         </button>
+
       </div>
     </div>
 
