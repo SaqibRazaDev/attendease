@@ -11,6 +11,9 @@ const TeacherAttendancePage = () => {
         week4: { Mon: '', Tue: '', Wed: '', Thu: '', Fri: '' },
     });
 
+    // State to manage the visibility of the menu items
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     // Handler for radio button change
     const handleAttendanceChange = (week, day, value) => {
         setAttendance(prev => ({
@@ -20,6 +23,11 @@ const TeacherAttendancePage = () => {
                 [day]: value,
             },
         }));
+    };
+
+    // Handler to toggle the menu
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
     };
 
     // Render table row for days of the week
@@ -93,12 +101,12 @@ const TeacherAttendancePage = () => {
                 {/* Left Container */}
                 <div className="w-full lg:w-1/4 bg-[#08183A] p-4 flex flex-col lg:h-screen">
                     {/* Hamburger Icon */}
-                    <div className="flex justify-end mb-4 lg:mb-6">
-                        <img src="img/menu.svg" alt="Menu" className="h-6 w-6" />
+                    <div className="flex justify-end mb-4 lg:hidden">
+                        <img src="img/menu.svg" alt="Menu" className="h-6 w-6 cursor-pointer" onClick={toggleMenu} />
                     </div>
                     {/* Buttons */}
-                    <div className="space-y-4">
-                        <button className="w-full lg:w-72 h-9 bg-[#F2BA1D] focus:bg-white text-[#08183A] flex items-center justify-center space-x-2 rounded">
+                    <div className={`space-y-4 ${isMenuOpen ? 'block' : 'hidden'} lg:block`}>
+                        <button className="w-full lg:w-72 h-9 bg-[#F2BA1D] text-[#08183A] flex items-center justify-center space-x-2 rounded">
                             <img src="img/dashboard 1.svg" alt="Dashboard Icon" className="w-6 h-6" />
                             <span>Dashboard</span>
                         </button>
@@ -106,7 +114,7 @@ const TeacherAttendancePage = () => {
                             <img src="/img/reading-book (1).svg" alt="Student Icon" className="w-6 h-6" />
                             <span>Student</span>
                         </button>
-                        <button className="w-full lg:w-72 h-9 focus:bg-white bg-[#F2BA1D] text-[#08183A] flex items-center justify-center space-x-2 rounded">
+                        <button className="w-full lg:w-72 h-9 bg-[#F2BA1D] text-[#08183A] flex items-center justify-center space-x-2 rounded">
                             <img src="/img/school (1).svg" alt="Teacher Icon" className="w-6 h-6" />
                             <span>Teacher</span>
                         </button>

@@ -1,6 +1,13 @@
-import React from 'react';
+"use client";
+import React, { useState } from 'react';
 
 const StudentDetailsPage = () => {
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
+    };
+
     return (
         <div className="min-h-screen bg-[#F2F2F2]">
             {/* Header */}
@@ -23,11 +30,11 @@ const StudentDetailsPage = () => {
                 {/* Left Container */}
                 <div className="w-full lg:w-1/4 bg-[#08183A] p-4 flex flex-col lg:h-screen">
                     {/* Hamburger Icon */}
-                    <div className="flex justify-end mb-4 lg:mb-6">
-                        <img src="img/menu.svg" alt="Menu" className="h-6 w-6" />
+                    <div className="flex justify-end mb-4 lg:mb-6 lg:hidden">
+                        <img src="img/menu.svg" alt="Menu" className="h-6 w-6 cursor-pointer" onClick={toggleMenu} />
                     </div>
                     {/* Buttons */}
-                    <div className="space-y-4">
+                    <div className={`space-y-4 ${menuOpen ? 'block' : 'hidden'} lg:block`}>
                         <button className="w-full lg:w-72 h-9 bg-[#F2BA1D] focus:bg-white text-[#08183A] flex items-center justify-center space-x-2 rounded">
                             <img src="img/dashboard 1.svg" alt="Dashboard Icon" className="w-6 h-6" />
                             <span>Dashboard</span>
