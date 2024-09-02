@@ -39,14 +39,8 @@ const EnrollTeacherPage = () => {
                             <img src="img/dashboard 1.svg" alt="Dashboard Icon" className="w-6 h-6" />
                             <span>Enroll Now</span>
                         </button>
-                        <button className="w-56 lg:w-72 h-9 bg-[#F2BA1D] text-[#08183A] flex items-center justify-center space-x-2 rounded">
-                            <img src="img/dashboard 1.svg" alt="Dashboard Icon" className="w-6 h-6" />
-                            <span>Button 2</span>
-                        </button>
-                        <button className="w-56 lg:w-72 h-9 bg-[#F2BA1D] text-[#08183A] flex items-center justify-center space-x-2 rounded">
-                            <img src="img/dashboard 1.svg" alt="Dashboard Icon" className="w-6 h-6" />
-                            <span>Button 3</span>
-                        </button>
+                        
+                        
                     </div>
                 </div>
                 {/* Right Container */}
