@@ -20,7 +20,6 @@ export default function HomePage() {
               </button>
             </div>
           </div>
-
           {/* New Container with Three Boxes */}
           <div className="flex flex-wrap justify-center items-center pt-20 space-y-10 gap-10 sm:space-x-10 sm:space-y-0 lg:space-x-20 lg:pt-20">
             <div className="flex flex-col items-center">
