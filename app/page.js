@@ -21,11 +21,13 @@ export default function HomePage() {
             </div>
           </div>
           {/* New Container with Three Boxes */}
+          <a href="http://localhost:3000/student">
           <div className="flex flex-wrap justify-center items-center pt-20 space-y-10 gap-10 sm:space-x-10 sm:space-y-0 lg:space-x-20 lg:pt-20">
             <div className="flex flex-col items-center">
               <div className="w-36 h-28 sm:w-44 sm:h-32 lg:w-48 lg:h-36 rounded-md bg-[#08183A] flex items-center justify-center border-2 border-[#F2BA1D]">
                 <Image src="/img/reading-book.svg" className="w-20 h-20" alt="Student Image" width={80} height={80} />
               </div>
+              </a>
               <p className="mt-2 text-center text-[#08183A] text-xl font-semibold">Student</p>
             </div>
             <div className="flex flex-col items-center">
@@ -40,6 +42,7 @@ export default function HomePage() {
               </div>
               <p className="mt-2 text-center text-[#08183A] text-xl font-semibold">Admin</p>
             </div>
+            
           </div>
         </div>
       </section>
