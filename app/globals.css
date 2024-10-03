@@ -2,3 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+.side-bar-btn {
+    @apply  w-full h-9 px-8  bg-yellow-500 text-blue-950 font-medium flex items-center justify-start gap-2 rounded hover:bg-white
+}

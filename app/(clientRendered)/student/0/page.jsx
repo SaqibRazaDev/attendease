@@ -1,12 +1,15 @@
-"use client";
-import React, { useState } from 'react';
 
-const StudentDetailsPage = () => {
-    const [menuOpen, setMenuOpen] = useState(false);
+'use client'
+import Image from 'next/image'
+import { useSelector } from 'react-redux';
+import logo from '../../../../public/assets/logo-full.svg'
+import profile from '../../../../public/assets/user-profile.svg';
+import SideBar from '../../../(Components)/side-bar/side-bar-student';
 
-    const toggleMenu = () => {
-        setMenuOpen(!menuOpen);
-    };
+const StudentDash = () => {
+
+    const value = useSelector((state) => state.counter.value)
+
 
     return (
         <div className="min-h-screen bg-[#F2F2F2]">
@@ -16,11 +19,11 @@ const StudentDetailsPage = () => {
                     <div className="container mx-auto flex flex-wrap justify-between items-center">
                         {/* Left side: Logo */}
                         <div className="flex items-center">
-                            <img src="img/logo (2).svg" alt="Logo" className="h-10 mr-3" />
+                            <Image src={logo} alt="Logo" width={208} height={40} className="h-10 w-52 mr-3" />
                         </div>
                         {/* Right side: Profile icon and admin name */}
                         <div className="flex items-center mt-4 sm:mt-0">
-                            <img src="img/Admin name.svg" alt="Profile Icon" className="h-12 w-36 rounded-full mr-2" />
+                            <Image src={profile} alt="Profile Icon" width={144} height={48}  className="h-12 w-36 rounded-full mr-2" />
                         </div>
                     </div>
                 </nav>
@@ -28,43 +31,20 @@ const StudentDetailsPage = () => {
             {/* Main Section */}
             <main className="flex flex-col lg:flex-row min-h-screen">
                 {/* Left Container */}
-                <div className="w-full lg:w-1/4 bg-[#08183A] p-4 flex flex-col lg:h-screen">
-                    {/* Hamburger Icon */}
-                    <div className="flex justify-end mb-4 lg:mb-6 lg:hidden">
-                        <img src="img/menu.svg" alt="Menu" className="h-6 w-6 cursor-pointer" onClick={toggleMenu} />
-                    </div>
-                    {/* Buttons */}
-                    <div className={`space-y-4 ${menuOpen ? 'block' : 'hidden'} lg:block`}>
-                        <button className="w-full lg:w-72 h-9 bg-[#F2BA1D] focus:bg-white text-[#08183A] flex items-center justify-center space-x-2 rounded">
-                            <img src="img/dashboard 1.svg" alt="Dashboard Icon" className="w-6 h-6" />
-                            <span>Dashboard</span>
-                        </button>
-                        <button className="w-full lg:w-72 h-9 bg-[#F2BA1D] text-[#08183A] flex items-center justify-center space-x-2 rounded">
-                            <img src="/img/reading-book (1).svg" alt="Student Icon" className="w-6 h-6" />
-                            <span>Student</span>
-                        </button>
-                        <button className="w-full lg:w-72 h-9 focus:bg-white bg-[#F2BA1D] text-[#08183A] flex items-center justify-center space-x-2 rounded">
-                            <img src="/img/school (1).svg" alt="Teacher Icon" className="w-6 h-6" />
-                            <span>Teacher</span>
-                        </button>
-                        <button className="w-full lg:w-72 h-9 focus:bg-white bg-[#F2BA1D] text-[#08183A] flex items-center justify-center space-x-2 rounded">
-                            <img src="/img/report-card (1) (1).svg" alt="Teacher Icon" className="w-6 h-6" />
-                            <span>Apply For Leave</span>
-                        </button>
-                    </div>
-                </div>
+                <SideBar/>
                 {/* Right Container */}
                 <div className="flex-1 p-4 flex flex-col mt-10 lg:mt-14 lg:h-screen overflow-y-auto">
                     {/* Heading */}
                     <div className="mb-6">
                         <h1 className="text-2xl font-bold text-[#08183A]">Student Details</h1>
+                        <p>Value = {value}</p>
                     </div>
                     {/* Flex Container for Cards */}
                     <div className="flex flex-wrap lg:flex-nowrap gap-4 mt-8">
                         {/* Student Card */}
                         <div className="bg-white shadow-lg rounded-lg p-6 mb-6 flex-shrink-0 flex flex-col w-full lg:w-[650px] h-auto lg:h-[450px]">
                             <div className="flex flex-col lg:flex-row mb-4">
-                                <img src="img/Rectangle 32.svg" alt="Student Photo" className="h-48 w-48 lg:h-72 lg:w-60 rounded-md mr-8 border border-black" />
+                                <Image src="assets/Rectangle 32.svg" width={192} height={192} alt="Student Photo" className="h-48 w-48 lg:h-72 lg:w-60 rounded-md mr-8 border border-black" />
                                 <div className="flex flex-col justify-center space-y-4 mt-4 lg:mt-0">
                                     <div className="flex items-center mb-2">
                                         <p className="font-bold text-lg text-[#08183A] w-40">Student Name:</p>
@@ -94,10 +74,10 @@ const StudentDetailsPage = () => {
                             </div>
                             <div className="flex justify-center mt-4 space-x-4">
                                 <button className="border border-[#08183A] w-14 h-14 text-white px-4 py-2 rounded">
-                                    <img src="img/printer.svg" className="w-9 h-9" alt="" />
+                                    <Image src="assets/printer.svg" width={36} height={36} className="w-9 h-9" alt="" />
                                 </button>
                                 <button className="border border-[#08183A] w-14 h-14 text-white px-4 py-2 rounded">
-                                    <img src="img/download.svg" className="w-9 h-9" alt="" />
+                                    <Image src="assets/download.svg" width={36} height={36} className="w-9 h-9" alt="" />
                                 </button>
                             </div>
                         </div>
@@ -123,4 +103,4 @@ const StudentDetailsPage = () => {
     );
 };
 
-export default StudentDetailsPage;
+export default StudentDash;
