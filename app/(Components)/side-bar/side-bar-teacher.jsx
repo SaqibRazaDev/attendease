@@ -30,7 +30,7 @@ function SideBar() {
                 
                 {/* Buttons */}
                 <div className="flex flex-col gap-4">
-                    <button className="side-bar-btn flex items-center" onClick={() => router.push('/teacher/tcard')} >
+                    <button className="side-bar-btn flex items-center" onClick={() => router.push('/teacher/0')} >
                         <MdSpaceDashboard className="w-6 h-6" />
                         <span className={`ml-4 ${isExpanded ? 'block' : 'hidden'}`}>Dashboard</span>
                     </button>

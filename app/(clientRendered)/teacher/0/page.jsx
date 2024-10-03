@@ -1,4 +1,5 @@
 "use client"
+import Image from 'next/image';
 import Header from '@/app/(Components)/header/header';
 import SideBar from '@/app/(Components)/side-bar/side-bar-teacher';
 
@@ -24,7 +25,7 @@ const TeacherDash = () => {
             {/* Student Card */}
             <div className="bg-white shadow-lg rounded-lg p-6 mb-6 flex-shrink-0 flex flex-col w-full lg:w-[576px] h-auto">
               <div className="flex flex-col lg:flex-row mb-4">
-                <img src="assets/Rectangle 32.svg" alt="Student Photo" className="h-[256px] w-[205.7px] rounded-md mb-4 lg:mb-0 lg:mr-8 border border-black mx-auto lg:mx-0" />
+                <Image src="assets/Rectangle 32.svg" alt="Student Photo" width={26} height={26} className="h-[256px] w-[205.7px] rounded-md mb-4 lg:mb-0 lg:mr-8 border border-black mx-auto lg:mx-0" />
                 <div className="flex flex-col justify-center space-y-4">
                   <div className="flex flex-col sm:flex-row items-start sm:items-center mb-2">
                     <p className="font-bold text-lg text-[#08183A] sm:w-40">Name:</p>
@@ -59,11 +60,11 @@ const TeacherDash = () => {
                 <p className="font-bold text-lg text-[#08183A]">Mark Attendance</p>
               </div>
               <div className="flex justify-center items-center bg-[#ECECEC] border border-black w-[208px] h-[204px] mx-auto">
-                <img src="img/available 1.svg" alt="Image" className="h-[176px] w-[176px]" />
+                <Image src="assets/available 1.svg" width={26} height={26} alt="Image" className="h-[176px] w-[176px]" />
               </div>
               <div className="flex justify-center mt-4">
                 <button className="border border-[#08183A] w-40 h-10 text-[#08183A] rounded flex justify-center items-center">
-                  <img src="img/user (1) 1.svg" className="w-[26.67px] h-[26.67px]" alt="Icon" />
+                  <Image src="assets/user (1) 1.svg" width={26} height={26} className="w-[26.67px] h-[26.67px]" alt="Icon" />
                   <span className="ml-2">Mark</span>
                 </button>
               </div>

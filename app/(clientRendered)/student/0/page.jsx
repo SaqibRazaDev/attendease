@@ -10,6 +10,8 @@ const StudentDash = () => {
 
     const value = useSelector((state) => state.counter.value)
 
+    const name = useSelector((state) => state.student.studentName)
+
 
     return (
         <div className="min-h-screen bg-[#F2F2F2]">
@@ -48,7 +50,7 @@ const StudentDash = () => {
                                 <div className="flex flex-col justify-center space-y-4 mt-4 lg:mt-0">
                                     <div className="flex items-center mb-2">
                                         <p className="font-bold text-lg text-[#08183A] w-40">Student Name:</p>
-                                        <p className="ml-8 text-sm">John Doe</p>
+                                        <p className="ml-8 text-sm">{name}</p>
                                     </div>
                                     <div className="flex items-center mb-2">
                                         <p className="font-bold text-lg text-[#08183A] w-40">Gender:</p>
