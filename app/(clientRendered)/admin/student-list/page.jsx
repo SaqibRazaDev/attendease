@@ -1,5 +1,8 @@
 "use client";
 import React, { useState } from 'react';
+import Header from '@/app/(Components)/header/header';
+import SideBar from '@/app/(Components)/side-bar/side-bar-admin';
+import { BsPersonFillAdd } from "react-icons/bs";
 
 function Page() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -11,52 +14,21 @@ function Page() {
   return (
     <div className="min-h-screen bg-[#F2F2F2]">
       {/* Header start here */}
-      <header>
-        <nav className="bg-white shadow-lg p-4">
-          <div className="container mx-auto flex flex-wrap justify-between items-center">
-            {/* Left side: Logo */}
-            <div className="flex items-center">
-              <img src="img/logo (2).svg" alt="Logo" className="h-10 mr-3" />
-            </div>
-            {/* Right side: Profile icon and admin name */}
-            <div className="flex items-center mt-4 sm:mt-0">
-              <img src="img/Admin name.svg" alt="Profile Icon" className="h-12 w-36 rounded-full mr-2" />
-            </div>
-          </div>
-        </nav>
-      </header>
+      <Header/>
+
       {/* Main Section */}
       <main className="flex flex-col lg:flex-row min-h-screen">
         {/* Left Container */}
-        <div className="w-full lg:w-1/4 bg-[#08183A] p-4 flex flex-col lg:h-screen">
-          {/* Hamburger Icon */}
-          <div className="flex justify-end mb-4 lg:hidden">
-            <img src="img/menu.svg" alt="Menu" className="h-6 w-6 cursor-pointer" onClick={toggleMenu} />
-          </div>
-          {/* Buttons */}
-          <div className={`space-y-4 ${menuOpen ? 'block' : 'hidden'} lg:block`}>
-            <button className="w-full lg:w-72 h-9 bg-[#F2BA1D] text-[#08183A] flex items-center justify-center space-x-2 rounded">
-              <img src="img/dashboard 1.svg" alt="Dashboard Icon" className="w-6 h-6" />
-              <span>Dashboard</span>
-            </button>
-            <button className="w-full lg:w-72 h-9 bg-[#F2BA1D] text-[#08183A] flex items-center justify-center space-x-2 rounded">
-              <img src="/img/reading-book (1).svg" alt="Student Icon" className="w-6 h-6" />
-              <span>Student</span>
-            </button>
-            <button className="w-full lg:w-72 h-9 bg-[#F2BA1D] text-[#08183A] flex items-center justify-center space-x-2 rounded">
-              <img src="/img/school (1).svg" alt="Teacher Icon" className="w-6 h-6" />
-              <span>Teacher</span>
-            </button>
-          </div>
-        </div>
+        
+        <SideBar/>
 
         {/* Right Container */}
         <div className="flex-1 p-4 flex flex-col mt-10 lg:mt-0 lg:h-screen overflow-y-auto">
           {/* Heading and Button */}
-          <div className="flex flex-col sm:flex-row justify-between items-center mb-6 space-y-4 sm:space-y-0 sm:space-x-4">
+          <div className="flex justify-between items-center my-4">
             <h1 className="text-2xl font-bold text-[#08183A]">Total students:</h1>
-            <button className="w-full sm:w-48 h-12 text-xl border border-black text-[#08183A] flex items-center justify-center space-x-2 rounded">
-              <img src="/img/add 1.svg" alt="Add Icon" className="w-9 h-9" />
+            <button className="w-48 h-10 text-base border border-black text-[#08183A] flex items-center justify-center gap-2 rounded">
+             <BsPersonFillAdd className='w-7 h-7' />
               <span>Enroll Student</span>
             </button>
           </div>

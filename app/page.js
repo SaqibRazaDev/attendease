@@ -1,4 +1,6 @@
 import Image from 'next/image'
+import Link from 'next/link';
+import { FaBookReader } from "react-icons/fa";
 
 export default function HomePage() {
   return (
@@ -6,7 +8,7 @@ export default function HomePage() {
       <section>
         <div className="container mx-auto flex flex-col justify-center items-center mt-10 px-4 space-y-10">
           <div className="text-center">
-            <Image src="/img/logo.svg" className="mb-4 w-32 h-24 mx-auto" alt="" width={128} height={96} />
+            <Image src="/assets/logo.svg" className="mb-4 w-32 h-24 mx-auto" alt="" width={128} height={96} />
             <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-[#08183A]">ATTENDEASE</p>
             <div className="flex flex-col items-center mt-5 space-y-16">
               <div className="flex justify-center space-x-5">
@@ -20,26 +22,38 @@ export default function HomePage() {
               </button>
             </div>
           </div>
+          
           {/* New Container with Three Boxes */}
+
           <div className="flex flex-wrap justify-center items-center pt-20 space-y-10 gap-10 sm:space-x-10 sm:space-y-0 lg:space-x-20 lg:pt-20">
-            <div className="flex flex-col items-center">
-              <div className="w-36 h-28 sm:w-44 sm:h-32 lg:w-48 lg:h-36 rounded-md bg-[#08183A] flex items-center justify-center border-2 border-[#F2BA1D]">
-                <Image src="/img/reading-book.svg" className="w-20 h-20" alt="Student Image" width={80} height={80} />
+
+            <Link href="/student">
+              <div className="flex flex-col items-center">
+                <div className="w-36 h-28 sm:w-44 sm:h-32 lg:w-48 lg:h-36 rounded-md bg-[#08183A] flex items-center justify-center border-2 border-[#F2BA1D]">
+                  <Image src="/assets/reading-book.svg" className="w-20 h-20" alt="Student Image" width={80} height={80} />
+                </div>
+                <p className="mt-2 text-center text-[#08183A] text-xl font-semibold">Student</p>
               </div>
-              <p className="mt-2 text-center text-[#08183A] text-xl font-semibold">Student</p>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="w-36 h-28 sm:w-44 sm:h-32 lg:w-48 lg:h-36 rounded-md bg-[#08183A] flex items-center justify-center border-2 border-[#F2BA1D]">
-                <Image src="/img/school.svg" className="w-20 h-20" alt="Teacher Image" width={80} height={80} />
+            </Link>
+
+            <Link href="/teacher">
+              <div className="flex flex-col items-center">
+                <div className="w-36 h-28 sm:w-44 sm:h-32 lg:w-48 lg:h-36 rounded-md bg-[#08183A] flex items-center justify-center border-2 border-[#F2BA1D]">
+                  <Image src="/assets/school.svg" className="w-20 h-20" alt="Teacher Image" width={80} height={80} />
+                </div>
+                <p className="mt-2 text-center text-[#08183A] text-xl font-semibold">Teacher</p>
               </div>
-              <p className="mt-2 text-center text-[#08183A] text-xl font-semibold">Teacher</p>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="w-36 h-28 sm:w-44 sm:h-32 lg:w-48 lg:h-36 rounded-md bg-[#08183A] flex items-center justify-center border-2 border-[#F2BA1D]">
-                <Image src="/img/user.svg" className="w-20 h-20" alt="Admin Image" width={80} height={80} />
+            </Link>
+
+            <Link href="admin">
+              <div className="flex flex-col items-center">
+                <div className="w-36 h-28 sm:w-44 sm:h-32 lg:w-48 lg:h-36 rounded-md bg-[#08183A] flex items-center justify-center border-2 border-[#F2BA1D]">
+                  <Image src="/assets/user.svg" className="w-20 h-20" alt="Admin Image" width={80} height={80} />
+                </div>
+                <p className="mt-2 text-center text-[#08183A] text-xl font-semibold">Admin</p>
               </div>
-              <p className="mt-2 text-center text-[#08183A] text-xl font-semibold">Admin</p>
-            </div>
+            </Link>
+
           </div>
         </div>
       </section>
