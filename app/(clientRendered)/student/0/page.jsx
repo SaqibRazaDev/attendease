@@ -1,4 +1,3 @@
-
 'use client'
 import Image from 'next/image'
 import { useSelector } from 'react-redux';
@@ -8,9 +7,22 @@ import SideBar from '../../../(Components)/side-bar/side-bar-student';
 
 const StudentDash = () => {
 
-    const value = useSelector((state) => state.counter.value)
 
-    const name = useSelector((state) => state.student.studentName)
+    const { student, status, error } = useSelector((state) => state.studentDetails);
+
+    if (status === 'loading') {
+        return <div>Loading...</div>;
+    }
+
+    if (status === 'failed') {
+        return <div>Error: {error}</div>;
+    }
+
+    if (!student) {
+        return <div>No student details available. Please enter a Valid CNIC.</div>;
+    }
+
+
 
 
     return (
@@ -25,7 +37,7 @@ const StudentDash = () => {
                         </div>
                         {/* Right side: Profile icon and admin name */}
                         <div className="flex items-center mt-4 sm:mt-0">
-                            <Image src={profile} alt="Profile Icon" width={144} height={48}  className="h-12 w-36 rounded-full mr-2" />
+                            <Image src={profile} alt="Profile Icon" width={144} height={48} className="h-12 w-36 rounded-full mr-2" />
                         </div>
                     </div>
                 </nav>
@@ -33,13 +45,12 @@ const StudentDash = () => {
             {/* Main Section */}
             <main className="flex flex-col lg:flex-row min-h-screen">
                 {/* Left Container */}
-                <SideBar/>
+                <SideBar />
                 {/* Right Container */}
                 <div className="flex-1 p-4 flex flex-col mt-10 lg:mt-14 lg:h-screen overflow-y-auto">
                     {/* Heading */}
                     <div className="mb-6">
                         <h1 className="text-2xl font-bold text-[#08183A]">Student Details</h1>
-                        <p>Value = {value}</p>
                     </div>
                     {/* Flex Container for Cards */}
                     <div className="flex flex-wrap lg:flex-nowrap gap-4 mt-8">
@@ -50,7 +61,7 @@ const StudentDash = () => {
                                 <div className="flex flex-col justify-center space-y-4 mt-4 lg:mt-0">
                                     <div className="flex items-center mb-2">
                                         <p className="font-bold text-lg text-[#08183A] w-40">Student Name:</p>
-                                        <p className="ml-8 text-sm">{name}</p>
+                                        <p className="ml-8 text-sm">{student.studentName}</p>
                                     </div>
                                     <div className="flex items-center mb-2">
                                         <p className="font-bold text-lg text-[#08183A] w-40">Gender:</p>
@@ -62,7 +73,7 @@ const StudentDash = () => {
                                     </div>
                                     <div className="flex items-center mb-2">
                                         <p className="font-bold text-[#08183A] text-lg w-40">CNIC:</p>
-                                        <p className="ml-8 text-sm">12345-6789012-3</p>
+                                        <p className="ml-8 text-sm">{student.cnic}</p>
                                     </div>
                                     <div className="flex items-center mb-2">
                                         <p className="font-bold text-[#08183A] text-lg w-40">Roll No:</p>

@@ -1,46 +1,38 @@
-import { createSlice } from '@reduxjs/toolkit';
+// src/features/studentSlice.js
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../../config/firebase'; // Adjust the import path to your firebase config
 
-const initialState = {
-  studentName: 'Saqib Raza',
-  gender: 'Male',
-  class: '10th Grade',
-  cnic: '12345-6789012-3',
-  rollNo: 123,
-  admissionDate: '2020-01-01',
-};
-
-const studentSlice = createSlice({
-  name: 'student',
-  initialState,
-  reducers: {
-    setStudentName: (state, action) => {
-      state.studentName = action.payload;
-    },
-    setGender: (state, action) => {
-      state.gender = action.payload;
-    },
-    setClass: (state, action) => {
-      state.class = action.payload;
-    },
-    setCnic: (state, action) => {
-      state.cnic = action.payload;
-    },
-    setRollNo: (state, action) => {
-      state.rollNo = action.payload;
-    },
-    setAdmissionDate: (state, action) => {
-      state.admissionDate = action.payload;
-    },
-  },
+// Async thunk to fetch students from Firebase
+export const fetchStudents = createAsyncThunk('students/fetchStudents', async () => {
+  const studentCollection = collection(db, 'EnrolledStudents');
+  const studentSnapshot = await getDocs(studentCollection);
+  const studentList = studentSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  return studentList; // This returns the array of student objects
 });
 
-export const {
-  setStudentName,
-  setGender,
-  setClass,
-  setCnic,
-  setRollNo,
-  setAdmissionDate,
-} = studentSlice.actions;
+const studentSlice = createSlice({
+  name: 'students',
+  initialState: {
+    students: [],
+    status: 'idle',
+    error: null,
+  },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchStudents.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(fetchStudents.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.students = action.payload; // Populate the students array with the fetched data
+      })
+      .addCase(fetchStudents.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
+      });
+  },
+});
 
 export default studentSlice.reducer;
