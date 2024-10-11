@@ -3,5 +3,17 @@
 @tailwind utilities;
 
 .side-bar-btn {
-    @apply  w-full h-9 px-8  bg-yellow-500 text-blue-950 font-medium flex items-center justify-start gap-2 rounded hover:bg-white
+    @apply w-full h-9 px-8 bg-yellow-500 text-blue-950 font-medium flex items-center justify-start gap-2 rounded hover:bg-white
+}
+
+.input-label {
+    @apply text-xl font-medium w-60 text-gray-700
+}
+
+.input-field {
+    @apply p-2 border border-gray-300 rounded-md flex-grow
+}
+
+.btn-custom {
+    @apply w-full h-12 mt-8 text-xl border border-black text-[#08183A] flex items-center justify-center space-x-2 rounded hover:bg-slate-200
 }

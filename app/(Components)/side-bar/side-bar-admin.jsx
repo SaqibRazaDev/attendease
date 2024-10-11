@@ -17,7 +17,7 @@ function SideBar() {
 
     return (
         <>
-            <div className={`bg-[#08183A] px-4 flex flex-col lg:h-screen ${isExpanded ? 'w-[300px]' : 'w-[112px]'} transition-all duration-300`}>
+            <div className={`bg-[#08183A] px-4 flex flex-col h-full min-h-screen ${isExpanded ? 'w-[300px]' : 'w-[112px]'} transition-all duration-300`}>
                 {/* Arrow Icon for toggling sidebar */}
                 <div className="flex justify-center my-6  cursor-pointer" onClick={toggleSidebar}>
                     {isExpanded ? (

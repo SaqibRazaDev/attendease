@@ -1,29 +1,47 @@
-"use client"
+"use client";
 import Header from '@/app/(Components)/header/header';
 import SideBar from '@/app/(Components)/side-bar/side-bar-admin';
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchTeachers } from '../../../../store/slices/teacherSlice'; // Adjust the path to your teacherSlice
+import { useRouter } from 'next/navigation';
+import { BsPersonFillAdd } from "react-icons/bs";
 
 const TeacherListPage = () => {
-    const [menuOpen, setMenuOpen] = useState(false);
+    const dispatch = useDispatch();
+    const router = useRouter();
 
-    const toggleMenu = () => {
-        setMenuOpen(!menuOpen);
-    };
+    // Get teachers data from the Redux store
+    const { teachers, status } = useSelector((state) => state.teachers);
+
+    useEffect(() => {
+        if (status === 'idle') {
+            dispatch(fetchTeachers());
+        }
+    }, [dispatch, status]);
 
     return (
         <div className="min-h-screen bg-[#F2F2F2]">
             {/* Header start here */}
-            <Header/>
+            <Header />
             {/* Main Section */}
             <main className="flex flex-col lg:flex-row min-h-screen">
-                
-                <SideBar/>
-
+                <SideBar />
                 {/* Right Container */}
                 <div className="flex-1 p-4 flex flex-col mt-10 lg:mt-0 lg:h-screen overflow-y-auto">
                     {/* Heading and Button */}
-                    <div className="flex flex-col sm:flex-row justify-between items-center mb-6 space-y-4 sm:space-y-0 sm:space-x-4">
-                        <h1 className="text-2xl font-bold text-[#08183A]">Total Teacher</h1>
+                    <div className="flex justify-between items-center my-4">
+                        <h1 className="text-2xl font-bold text-[#08183A]">
+                            Total Teachers: {teachers.length}
+                        </h1>
+
+                        <button
+                            className="w-48 h-10 text-base border border-black text-[#08183A] flex items-center justify-center gap-2 rounded hover:bg-slate-200"
+                            onClick={() => router.push('/admin/enrollment/teacher-enroll')}
+                        >
+                            <BsPersonFillAdd className='w-7 h-7' />
+                            <span>Enroll Teacher</span>
+                        </button>
                     </div>
                     {/* Table */}
                     <div className="overflow-auto">
@@ -38,20 +56,26 @@ const TeacherListPage = () => {
                                 </tr>
                             </thead>
                             <tbody className="text-sm">
-                                {/* Example rows */}
-                                {[...Array(10).keys()].map(index => (
-                                    <tr key={index} className="bg-white shadow-md mb-2">
-                                        <td className="py-2 px-4">{index + 1}</td>
-                                        <td className="py-2 px-4">John Doe</td>
-                                        <td className="py-2 px-4">English</td>
-                                        <td className="py-2 px-4">3</td>
-                                        <td className="py-2 px-4">
-                                            <button className="bg-[#F2BA1D] text-[#08183A] px-4 py-1 rounded">
-                                                View
-                                            </button>
-                                        </td>
+                                {status === 'loading' ? (
+                                    <tr>
+                                        <td colSpan="5" className="py-2 px-4 text-center">Loading...</td>
                                     </tr>
-                                ))}
+                                ) : (
+                                    teachers.map((teacher, index) => (
+                                        <tr key={teacher.id} className="bg-white shadow-md mb-2">
+                                            <td className="py-2 px-4">{index + 1}</td>
+                                            <td className="py-2 px-4">{teacher.teacherName}</td>
+                                            <td className="py-2 px-4">{teacher.subjectName}</td>
+                                            <td className="py-2 px-4">{teacher.noOfPeriod}</td>
+
+                                            <td className="py-2 px-4">
+                                                <button className="bg-[#F2BA1D] text-[#08183A] px-4 py-1 rounded">
+                                                    View
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    ))
+                                )}
                             </tbody>
                         </table>
                     </div>
